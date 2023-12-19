@@ -4,4 +4,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     site: 'https://ezequielish.github.io/',
     base: 'https://github.com/ezequielish/ezequielish.github.io',
+    outDir: './docs',
 });
