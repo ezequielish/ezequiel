@@ -10,7 +10,7 @@ import LogoDark from "../assets/img/logo-dark.svg";
 
 <header>
     <div class="content">
-        <Image src={LogoDark} alt="Logo Ezequielish" class="logo" />
+        <Image src={LogoDark} alt="Logo Ezequielish" id="logo" class="logo" />
         <h1>Ezequiel Guerra</h1>
         <h2>Desarrollador Fullstack</h2>
 
@@ -53,16 +53,19 @@ import LogoDark from "../assets/img/logo-dark.svg";
             src={OfficePng}
             alt="virtual office"
             class="virtual-office-img"
+            id="officeImg"
+            loading="lazy"
         />
     </figure>
 </header>
 <script>
+    import OfficePng from "../assets/img/office.png";
+    import OfficeLightPng from "../assets/img/office-light.png";
     import { atom } from "nanostores";
     const viewPercentage = atom({
         aboutme: 0,
         experience: 0,
     });
-
     const handleNavAct = (section) => {
         if (section == "experience") {
             return (
@@ -129,9 +132,6 @@ import LogoDark from "../assets/img/logo-dark.svg";
             });
 
             observer.observe(document.querySelector(`#section-${element}`));
-
-            console.log(element, handleNavAct(element));
-
             if (handleNavAct(element)) {
                 cleanLiActive(nav);
 
@@ -144,6 +144,23 @@ import LogoDark from "../assets/img/logo-dark.svg";
             }
         }
     });
+    const host = "//https://ezequielish.github.io/ezequiel";
+    const btnAparence = document.querySelector("#logo");
+    const officePng = document.querySelector("#officeImg");
+    const html = document.querySelector("html");
+    if (btnAparence) {
+        btnAparence.addEventListener("click", () => {
+            if (html.dataset.theme == "dark") {
+                officePng.setAttribute("src", `${host}/office-light.png`);
+                btnAparence.setAttribute("src", `${host}/logo_color.svg`);
+                html.setAttribute("data-theme", "light");
+            } else {
+                officePng.setAttribute("src", `${host}/office.png`);
+                btnAparence.setAttribute("src", `${host}/logo-dark.svg`);
+                html.setAttribute("data-theme", "dark");
+            }
+        });
+    }
 </script>
 <style>
     .li-active {
@@ -181,6 +198,7 @@ import LogoDark from "../assets/img/logo-dark.svg";
         position: absolute;
         right: 0px;
         top: -5px;
+        cursor: pointer;
     }
 
     .hero__social-media {

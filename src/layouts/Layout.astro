@@ -10,7 +10,10 @@ const { title } = Astro.props;
 <html lang="es" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Hola soy Ezequielish, " />
+		<meta
+			name="description"
+			content="Hola soy Ezequielish, desarrollador de software fullstack, Mi enfoque abarca tanto el desarrollo frontend como backend"
+		/>
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -227,13 +230,18 @@ const { title } = Astro.props;
 			28.4px 41.2px 52.9px -2.9px hsl(var(--shadow-color) / 0.24);
 	}
 
-	/* [data-theme="light"] {
-		--background-dark: #d9d9d9;
+	[data-theme="light"] {
+		--background-dark: #ffffff;
 		--white: #13151a;
 		--grey: #3d3737;
 		--blue-light: #13151a 100%;
-		--background-span-dark: #747985;
-	} */
+		--background-span-dark: #2a81a9;
+		--blue-light: var(--white);
+	}
+
+	.white-svg {
+		stroke: var(--blue-light);
+	}
 	/* data-theme="dark" */
 	/* EEEYYY$$444555 */
 	html {
@@ -245,9 +253,6 @@ const { title } = Astro.props;
 		/* background-size: 224px; */
 	}
 
-	.white-svg {
-		stroke: var(--blue-light);
-	}
 	code {
 		font-family:
 			Menlo,
