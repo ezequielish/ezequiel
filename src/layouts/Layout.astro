@@ -1,0 +1,264 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Hola soy Ezequielish, " />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<meta
+			name="keywords"
+			content="ezequielish, FullStack,Frontend,React,Vue,Nodejs,Github,PHP,Laravel,CSS, JavaScript"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="author" content="ezequielish" />
+		<link rel="icon" type="image/svg+xml" href="/logo_color-2.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	html,
+	body,
+	div,
+	span,
+	applet,
+	object,
+	iframe,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	a,
+	abbr,
+	acronym,
+	address,
+	big,
+	cite,
+	code,
+	del,
+	dfn,
+	em,
+	img,
+	ins,
+	kbd,
+	q,
+	s,
+	samp,
+	small,
+	strike,
+	strong,
+	sub,
+	sup,
+	tt,
+	var,
+	b,
+	u,
+	i,
+	center,
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li,
+	fieldset,
+	form,
+	label,
+	legend,
+	table,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td,
+	article,
+	aside,
+	canvas,
+	details,
+	embed,
+	figure,
+	figcaption,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	output,
+	ruby,
+	section,
+	summary,
+	time,
+	mark,
+	audio,
+	video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article,
+	aside,
+	details,
+	figcaption,
+	figure,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol,
+	ul {
+		list-style: none;
+	}
+	blockquote,
+	q {
+		quotes: none;
+	}
+	blockquote:before,
+	blockquote:after,
+	q:before,
+	q:after {
+		content: "";
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	@media (prefers-color-scheme: light) {
+		:root {
+			/**FONT SIZES */
+			--height-header-movil: 5vh;
+			/*******/
+			/**COLORS */
+			--accent: 136, 58, 234;
+			--accent-light: 224, 204, 250;
+			--accent-dark: 49, 10, 101;
+			--accent-gradient: linear-gradient(
+				45deg,
+				rgb(var(--accent)),
+				rgb(var(--accent-light)) 30%,
+				white 60%
+			);
+
+			--background-dark: linear-gradient(
+				135deg,
+				rgb(15, 22, 37) 0%,
+				#13151a 100%
+			);
+			--color-dark: #13151a 100%;
+			--background-span-dark: #262f44;
+			--white: #d9d9d9;
+			--grey: #898989;
+			--blue-light: #24ccf9;
+			--blue-light-2: #2a81a9;
+			/*******/
+			/**FONT SIZES */
+			--font-size-xsmall: calc(var(--font-size-small) - 0.3rem);
+			--font-size-small: 1rem;
+			--font-size-normal: 1.3rem;
+			--font-size-medium: 1.6rem;
+			--font-size-large: 1.9rem;
+			--font-size-xlarge: calc(var(--font-size-large) + 0.3rem);
+			--font-size-2xlarge: calc(var(--font-size-xlarge) + 0.3rem);
+			--font-size-3xlarge: calc(var(--font-size-2xlarge) + 0.3rem);
+			--font-size-4xlarge: calc(var(--font-size-3xlarge) + 0.3rem);
+			--font-size-5xlarge: calc(var(--font-size-4xlarge) + 0.3rem);
+			/*******/
+			/**PADDING | MARGIN SIZES */
+			--pm-size-xxsmall: 5px;
+			--pm-size-xsmall: 8px;
+			--pm-size-normal: 1rem;
+			--pm-size-medium: 1.5rem;
+			/*******/
+			--shadow-color: 222deg 41% 12%;
+			--shadow-elevation-low: 0.3px 0.5px 0.6px
+					hsl(var(--shadow-color) / 0.33),
+				0.5px 0.8px 1px -1.5px hsl(var(--shadow-color) / 0.3),
+				1.3px 1.8px 2.3px -2.9px hsl(var(--shadow-color) / 0.27);
+			--shadow-elevation-medium: 0.3px 0.5px 0.6px
+					hsl(var(--shadow-color) / 0.35),
+				1px 1.4px 1.8px -1px hsl(var(--shadow-color) / 0.32),
+				2.5px 3.6px 4.6px -2px hsl(var(--shadow-color) / 0.3),
+				6.3px 9.1px 11.7px -2.9px hsl(var(--shadow-color) / 0.27);
+			--shadow-elevation-high: 0.3px 0.5px 0.6px
+					hsl(var(--shadow-color) / 0.33),
+				1.5px 2.1px 2.7px -0.4px hsl(var(--shadow-color) / 0.31),
+				2.8px 4px 5.2px -0.8px hsl(var(--shadow-color) / 0.3),
+				4.7px 6.8px 8.7px -1.3px hsl(var(--shadow-color) / 0.29),
+				7.7px 11.1px 14.3px -1.7px hsl(var(--shadow-color) / 0.28),
+				12.3px 17.9px 23px -2.1px hsl(var(--shadow-color) / 0.26),
+				19px 27.6px 35.4px -2.5px hsl(var(--shadow-color) / 0.25),
+				28.4px 41.2px 52.9px -2.9px hsl(var(--shadow-color) / 0.24);
+		}
+	}
+
+	/* [data-theme="light"] {
+		--background-dark: #d9d9d9;
+		--white: #13151a;
+		--grey: #3d3737;
+		--blue-light: #13151a 100%;
+		--background-span-dark: #747985;
+	} */
+	/* data-theme="dark" */
+	/* EEEYYY$$444555 */
+	html {
+		font-family: system-ui, sans-serif;
+		/* background: var(--background-dark); */
+		color: var(--white);
+		font-family: "Rubik", sans-serif;
+		background: var(--color-dark);
+		/* background-size: 224px; */
+	}
+
+	.white-svg {
+		stroke: var(--blue-light);
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

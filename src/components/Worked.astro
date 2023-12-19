@@ -1,0 +1,120 @@
+---
+import Api from "../store/api.json";
+---
+
+<section id="section-experience">
+    <h1>Experiencia</h1>
+
+    <div class="experience__wrapper">
+        {
+            Api.experience.map((item, key) => {
+                return (
+                    <div class="experience__wrapper-items">
+                        <p class="experience__wrapper-period">{item.period}</p>
+                        <p class="experience__wrapper-company">
+                            {item.company}
+                        </p>
+                        <h2>{item.position}</h2>
+                        <ul class="experience__wrapper__list">
+                            {item.description.map((descp) => {
+                                return <li>- {descp}</li>;
+                            })}
+                        </ul>
+                        <div class="experience__wrapper-skills">
+                            {item.skills.map((skill) => {
+                                return <span>{skill}</span>;
+                            })}
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: var(--font-size-medium);
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--background-dark);
+    }
+    h2 {
+        margin-top: var(--pm-size-xsmall);
+        font-size: var(--font-size-normal);
+    }
+
+    .experience__wrapper {
+        margin-top: var(--pm-size-normal);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--pm-size-medium) + 1rem);
+    }
+    .experience__wrapper__list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--pm-size-xsmall);
+        font-size: var(--font-size-small);
+        margin-top: var(--pm-size-xsmall);
+        color: var(--grey);
+    }
+
+    .experience__wrapper-period {
+        font-size: var(--font-size-normal);
+    }
+
+    .experience__wrapper-company {
+        font-weight: 700;
+        margin-top: var(--pm-size-xsmall);
+    }
+
+    .experience__wrapper-skills {
+        margin-top: var(--pm-size-normal);
+        display: flex;
+        gap: var(--pm-size-xsmall);
+        font-size: calc(var(--font-size-xsmall) + .1rem);
+        flex-wrap: wrap;
+    }
+
+    .experience__wrapper-skills span {
+        box-shadow: var(--shadow-elevation-medium);
+        background-color: var(--background-span-dark);
+        padding: var(--pm-size-xxsmall);
+        border-radius: 10px;
+        color: var(--blue-light);
+    }
+
+    @media screen and (min-width: 1024px) {
+        #section-experience {
+            grid-column: 2;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 0;
+            background: none;
+        }
+
+        .experience__wrapper__list {
+            font-size: var(--font-size-normal);
+            margin-top: var(--pm-size-xsmall);
+        }
+        .experience__wrapper-period {
+            font-size: var(--font-size-normal);
+            /* color: var(--blue-light-2); */
+        }
+
+        .experience__wrapper-company {
+            font-weight: 700;
+            margin-top: var(--pm-size-xsmall);
+            font-size: calc(var(--font-size-normal) + 0.2rem);
+        }
+
+        h2 {
+            margin-top: var(--pm-size-xsmall);
+            font-size: calc(var(--font-size-normal) + 0.2rem);
+        }
+    }
+</style>

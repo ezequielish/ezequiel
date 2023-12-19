@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Aboutme from "../components/Aboutme.astro";
+import Worked from "../components/Worked.astro";
+
+
+---
+
+<Layout title="Ezequielish ⚛️">
+	<main>
+		<Header />
+		<Aboutme />
+		<Worked />
+	</main>
+</Layout>
+
+<style>
+
+	main {
+		margin: auto;
+		padding: var(--pm-size-medium);
+		width: calc(100% - calc(var(--pm-size-medium) * 2));
+		font-size: var(--font-size-small);
+		line-height: 1.6;
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--pm-size-medium) * 2);
+		background: var(--background-dark);
+		height: auto;
+		/* max-width: calc(100% - calc(var(--pm-size-medium) * 2)); */
+		max-width: 1375px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		main {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+</style>

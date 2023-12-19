@@ -1,0 +1,90 @@
+{
+    "experience": [
+        {
+            "period": "ACTUAL",
+            "position": "Desarrollador FullStack",
+            "company": "Freelancer",
+            "description": [
+                "Sistema de gestion de usurios y plantillas de tarjetas para clientes que carnetizan a sus empleados, credenciales de eventos, entro otros.",
+                "Desarrollo de features en frontend para para panel(backoffice) y página web de Micasino.com.",
+                "A partir de un sistema y base de datos ya creados desarrolle un API Rest y webapp para cliente en españa el cual gestionaba usuarios y diseños de facturas que luego serian guardadas en pdf o impresas."
+            ],
+            "skills": [
+                "JavaScript (ES6+)",
+                "ExtJS",
+                "Reactjs",
+                "CSS3/HTML",
+                "Github/Bitbucket,",
+                "Nodejs",
+                "PM2",
+                "PHP/Laravel",
+                "Postgresql",
+                "Mongodb"
+            ]
+        },
+        {
+            "period": "AGO 2020 -- JUN 2022",
+            "position": "Ingeniero de Software",
+            "company": "Carryt",
+            "description": [
+                "Desarrolle una herramienta de CLI para leer registros de un archivos .csv formatearlos y hacer una carga masiva a una base de datos.",
+                "Crear servicios de integración para formatear datos y enviarlos mediandte un REST.",
+                "Generador de plantillas dinámicas HTML para exportar documentos PDF.",
+                "Desarrollo de módulos Frontend en las librerias Extjs y Reactjs."
+            ],
+            "skills": [
+                "JavaScript (ES6+)",
+                "ExtJS",
+                "Reactjs",
+                "CSS3/HTML",
+                "Github/Bitbucket,",
+                "Nodejs",
+                "PM2",
+                "PHP/Laravel",
+                "Postgresql",
+                "Mongodb"
+            ]
+        },
+        {
+            "period": "JUL 2017 -- ENE 2020",
+            "position": "Desarrollador FullStack",
+            "company": "Gobernación de Miranda",
+            "description": [
+                "Desarrollo y mantenimiento de módulos y base de datos para sistema de envio masivos de sms a través de modem gsm.",
+                "Website para recolectar cartas con solicitudes de problemas en las comunidades que luego serían gestionadas, procesadas y organizadas para exportar en reportes con formaro Excel y PDF de manera automatizada.",
+                "Desarrollo de una webapp donde se mostraba un paneles con estadísticas de tweets utilizando el API de twitter filtrando tweets y  estadísticas que se almacenaban en una base de datos."
+            ],
+            "skills": [
+                "JavaScript (ES6+)",
+                "Jquery",
+                "Lumen",
+                "Github,",
+                "Nodejs",
+                "PHP/Laravel",
+                "Postgresql",
+                "Mysql",
+                "ElectronJs"
+            ]
+        },
+        {
+            "period": "ABR 2015 -- JUN 2016",
+            "position": "Desarrollador Jr.",
+            "company": "DisegnaTec",
+            "description": [
+                "Desarrollo de páginas informativas de distintos diseños, creación de formularios para encuestas.",
+                "Desarrollo y mantenimiento de módulos frontend y backend para un sistema SaaS de distribución y ventas que hacia seguimiento en real time."
+            ],
+            "skills": [
+                "JavaScript",
+                "Jquery",
+                "CSS3/HTML",
+                "Nodejs",
+                "PM2",
+                "PHP/Codeigniter",
+                "Mysql",
+                "Bootstrap",
+                "Github/Bitbucket,"
+            ]
+        }
+    ]
+}

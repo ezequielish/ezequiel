@@ -1,0 +1,398 @@
+---
+import { Image } from "astro:assets";
+import OfficePng from "../assets/img/office.png";
+import IconGitHub from "./IconGitHub.astro";
+import IconLinkedin from "./IconLinkedin.astro";
+import IconTwitter from "./IconTwitter.astro";
+import IconPlatzi from "./IconPlatzi.astro";
+import LogoDark from "../assets/img/logo-dark.svg";
+---
+
+<header>
+    <div class="content">
+        <Image src={LogoDark} alt="Logo Ezequielish" class="logo" />
+        <h1>Ezequiel Guerra</h1>
+        <h2>Desarrollador Fullstack</h2>
+
+        <p>
+            Soy un desarrollador de software me gusta escribir código (y en
+            ocasiones diseño cosas).
+        </p>
+        <p>Mi enfoque abarca tanto el desarrollo frontend como backend.</p>
+
+        <nav class="nav">
+            <ul>
+                <li class="aboutme">
+                    <div></div><a href="#aboutme">Acerca de mí</a>
+                </li>
+                <li class="experience">
+                    <div></div><a href="#experience">Experiencia</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="hero__social-media">
+        <a href="https://github.com/ezequielish" target="_blank">
+            <IconGitHub classStyle="white-svg" width="38px" height="38px" />
+        </a>
+        <a
+            href="https://www.linkedin.com/in/ezequiel-guerra-0945859a/"
+            target="_blank"
+        >
+            <IconLinkedin classStyle="white-svg" width="38px" height="38px" />
+        </a>
+        <a href="https://twitter.com/ezequiel_ish" target="_blank">
+            <IconTwitter classStyle="white-svg" width="38px" height="38px" />
+        </a>
+        <a href="https://platzi.com/p/Ezequiel_ish/" target="_blank">
+            <IconPlatzi classStyle="white-svg" width="30px" height="35px" />
+        </a>
+    </div>
+    <figure>
+        <Image
+            src={OfficePng}
+            alt="virtual office"
+            class="virtual-office-img"
+        />
+    </figure>
+</header>
+<script>
+    import { atom } from "nanostores";
+    const viewPercentage = atom({
+        aboutme: 0,
+        experience: 0,
+    });
+
+    const handleNavAct = (section) => {
+        if (section == "experience") {
+            return (
+                viewPercentage.get().experience > 25 &&
+                viewPercentage.get().aboutme < 5
+            );
+        }
+        if (section == "aboutme") {
+            return (
+                viewPercentage.get().aboutme > 50 &&
+                viewPercentage.get().experience < 10
+            );
+        }
+    };
+    const sectionsHtml = ["aboutme", "experience"];
+    const nav = document.querySelectorAll("nav ul li");
+    const cleanLiActive = (_nav) => {
+        return _nav.forEach((e) => {
+            e.querySelector("a").classList.remove("li-active");
+            e.querySelector("div").classList.remove("line-li-active");
+        });
+    };
+
+    for (let index = 0; index < nav.length; index++) {
+        const element = nav[index];
+        element.addEventListener("click", (ev) => {
+            let w = window;
+            let section = element.classList[0];
+            let sectionScroll = document.getElementById(`section-${section}`);
+            w.scrollTo({
+                behavior: "smooth",
+                left: 0,
+                top: sectionScroll.offsetTop,
+            });
+        });
+    }
+
+    document.addEventListener("scroll", (ev) => {
+        for (let index = 0; index < sectionsHtml.length; index++) {
+            const element = sectionsHtml[index];
+
+            const observer = new window.IntersectionObserver(function (
+                entries,
+            ) {
+                const { intersectionRatio } = entries[0];
+                let porcent = Math.floor(intersectionRatio * 100);
+
+                switch (element) {
+                    case "aboutme":
+                        viewPercentage.set({
+                            ...viewPercentage.get(),
+                            aboutme: porcent,
+                        });
+                        break;
+                    case "experience":
+                        viewPercentage.set({
+                            ...viewPercentage.get(),
+                            experience: porcent,
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            observer.observe(document.querySelector(`#section-${element}`));
+
+            console.log(element, handleNavAct(element));
+
+            if (handleNavAct(element)) {
+                cleanLiActive(nav);
+
+                document
+                    .querySelector(`.${element} a`)
+                    .classList.add("li-active");
+                document
+                    .querySelector(`.${element} div`)
+                    .classList.add("line-li-active");
+            }
+        }
+    });
+</script>
+<style>
+    .li-active {
+        color: var(--white) !important;
+    }
+
+    .line-li-active {
+        width: 60px !important;
+        background-color: var(--white) !important;
+    }
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: var(--font-size-normal);
+    }
+
+    .content {
+        position: relative;
+    }
+
+    header .virtual-office-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: top;
+        aspect-ratio: 1/1;
+    }
+
+    header .logo {
+        width: 35px;
+        height: 20px;
+        aspect-ratio: 1 /1;
+        object-fit: contain;
+        position: absolute;
+        right: 0px;
+        top: -5px;
+    }
+
+    .hero__social-media {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: var(--pm-size-normal);
+        width: 70%;
+        margin-top: var(--pm-size-medium);
+    }
+
+    header,
+    .hero__social-media a {
+        text-decoration: none;
+    }
+
+    h1 {
+        margin-top: var(--pm-size-medium);
+        font-size: var(--font-size-large);
+        font-weight: 700;
+        line-height: 1;
+        text-align: left;
+        color: var(--white);
+    }
+
+    h2 {
+        color: var(--blue-light-2);
+        margin-top: var(--pm-size-normal);
+        font-size: var(--font-size-medium);
+        font-weight: 700;
+        line-height: 1;
+        text-align: left;
+    }
+
+    p {
+        color: var(--white);
+        text-align: left;
+        margin-top: var(--pm-size-normal);
+        font-size: var(--font-size-small);
+    }
+
+    p:nth-of-type(1) {
+        margin-top: var(--pm-size-medium);
+    }
+
+    figure {
+        display: none;
+    }
+
+    nav {
+        position: fixed;
+        top: -4px;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        display: none;
+    }
+
+    nav ul {
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        padding: var(--pm-size-xsmall);
+        display: flex;
+    }
+
+    nav ul li a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: bold;
+        /* font-size: var(--font-size-medium); */
+        margin-left: var(--pm-size-normal);
+    }
+
+    @media screen and (min-width: 500px) {
+        .hero__social-media {
+            justify-content: flex-start;
+        }
+
+        .hero__social-media a {
+            margin-left: var(--pm-size-xsmall);
+        }
+
+        .hero__social-media a:nth-of-type(1) {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (min-width: 800px) and (max-width: 1023px) {
+        .content {
+            width: 50%;
+        }
+
+        .hero__social-media {
+            order: 2;
+        }
+
+        figure {
+            height: 310px;
+            display: flex;
+            order: 1;
+            width: 45%;
+            padding: var(--pm-size-normal);
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        header {
+            display: flex;
+            justify-content: center;
+            /* align-content: space-around; */
+            position: fixed;
+            width: 50%;
+            height: 100%;
+        }
+
+        figure {
+            width: 57%;
+        }
+
+        .hero__social-media {
+            order: 2;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .content {
+            width: 95%;
+        }
+
+        h1 {
+            font-size: var(--font-size-2xlarge);
+        }
+
+        h2 {
+            font-size: var(--font-size-large);
+        }
+
+        p {
+            font-size: var(--font-size-normal);
+        }
+
+        nav {
+            display: flex;
+            margin-top: var(--pm-size-medium);
+            position: relative;
+            background: inherit;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: var(--pm-size-normal);
+        }
+
+        nav ul li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            margin-left: var(--pm-size-xsmall);
+            color: var(--grey);
+            font-size: var(--font-size-normal);
+        }
+
+        nav ul li:hover a {
+            text-decoration: none;
+            color: var(--white);
+            transition: 0.4s all;
+        }
+
+        nav ul li div {
+            height: 1px;
+            width: 30px;
+            transition: 0.4s all;
+            background: var(--grey);
+        }
+
+        nav ul li:hover div {
+            width: 60px;
+            background: var(--white);
+        }
+    }
+
+    @media screen and (min-width: 1300px) {
+        header {
+            width: 687px;
+            height: auto;
+        }
+
+        .hero__social-media {
+            position: absolute;
+            right: 160px;
+            top: 0px;
+            width: 0;
+        }
+
+        figure {
+            display: flex;
+        }
+    }
+
+    @media screen and (min-width: 800px) and (max-width: 1023px) and (orientation: landscape) {
+        .hero__social-media {
+            margin-top: -30px;
+        }
+    }
+</style>
