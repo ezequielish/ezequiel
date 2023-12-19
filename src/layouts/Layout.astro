@@ -161,72 +161,70 @@ const { title } = Astro.props;
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-	@media (prefers-color-scheme: light) {
-		:root {
-			/**FONT SIZES */
-			--height-header-movil: 5vh;
-			/*******/
-			/**COLORS */
-			--accent: 136, 58, 234;
-			--accent-light: 224, 204, 250;
-			--accent-dark: 49, 10, 101;
-			--accent-gradient: linear-gradient(
-				45deg,
-				rgb(var(--accent)),
-				rgb(var(--accent-light)) 30%,
-				white 60%
-			);
+	:root {
+		/**FONT SIZES */
+		--height-header-movil: 5vh;
+		/*******/
+		/**COLORS */
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
 
-			--background-dark: linear-gradient(
-				135deg,
-				rgb(15, 22, 37) 0%,
-				#13151a 100%
-			);
-			--color-dark: #13151a 100%;
-			--background-span-dark: #262f44;
-			--white: #d9d9d9;
-			--grey: #898989;
-			--blue-light: #24ccf9;
-			--blue-light-2: #2a81a9;
-			/*******/
-			/**FONT SIZES */
-			--font-size-xsmall: calc(var(--font-size-small) - 0.3rem);
-			--font-size-small: 1rem;
-			--font-size-normal: 1.3rem;
-			--font-size-medium: 1.6rem;
-			--font-size-large: 1.9rem;
-			--font-size-xlarge: calc(var(--font-size-large) + 0.3rem);
-			--font-size-2xlarge: calc(var(--font-size-xlarge) + 0.3rem);
-			--font-size-3xlarge: calc(var(--font-size-2xlarge) + 0.3rem);
-			--font-size-4xlarge: calc(var(--font-size-3xlarge) + 0.3rem);
-			--font-size-5xlarge: calc(var(--font-size-4xlarge) + 0.3rem);
-			/*******/
-			/**PADDING | MARGIN SIZES */
-			--pm-size-xxsmall: 5px;
-			--pm-size-xsmall: 8px;
-			--pm-size-normal: 1rem;
-			--pm-size-medium: 1.5rem;
-			/*******/
-			--shadow-color: 222deg 41% 12%;
-			--shadow-elevation-low: 0.3px 0.5px 0.6px
-					hsl(var(--shadow-color) / 0.33),
-				0.5px 0.8px 1px -1.5px hsl(var(--shadow-color) / 0.3),
-				1.3px 1.8px 2.3px -2.9px hsl(var(--shadow-color) / 0.27);
-			--shadow-elevation-medium: 0.3px 0.5px 0.6px
-					hsl(var(--shadow-color) / 0.35),
-				1px 1.4px 1.8px -1px hsl(var(--shadow-color) / 0.32),
-				2.5px 3.6px 4.6px -2px hsl(var(--shadow-color) / 0.3),
-				6.3px 9.1px 11.7px -2.9px hsl(var(--shadow-color) / 0.27);
-			--shadow-elevation-high: 0.3px 0.5px 0.6px
-					hsl(var(--shadow-color) / 0.33),
-				1.5px 2.1px 2.7px -0.4px hsl(var(--shadow-color) / 0.31),
-				2.8px 4px 5.2px -0.8px hsl(var(--shadow-color) / 0.3),
-				4.7px 6.8px 8.7px -1.3px hsl(var(--shadow-color) / 0.29),
-				7.7px 11.1px 14.3px -1.7px hsl(var(--shadow-color) / 0.28),
-				12.3px 17.9px 23px -2.1px hsl(var(--shadow-color) / 0.26),
-				19px 27.6px 35.4px -2.5px hsl(var(--shadow-color) / 0.25),
-				28.4px 41.2px 52.9px -2.9px hsl(var(--shadow-color) / 0.24);
-		}
+		--background-dark: linear-gradient(
+			135deg,
+			rgb(15, 22, 37) 0%,
+			#13151a 100%
+		);
+		--color-dark: #13151a 100%;
+		--background-span-dark: #262f44;
+		--white: #d9d9d9;
+		--grey: #898989;
+		--blue-light: #24ccf9;
+		--blue-light-2: #2a81a9;
+		/*******/
+		/**FONT SIZES */
+		--font-size-xsmall: calc(var(--font-size-small) - 0.3rem);
+		--font-size-small: 1rem;
+		--font-size-normal: 1.3rem;
+		--font-size-medium: 1.6rem;
+		--font-size-large: 1.9rem;
+		--font-size-xlarge: calc(var(--font-size-large) + 0.3rem);
+		--font-size-2xlarge: calc(var(--font-size-xlarge) + 0.3rem);
+		--font-size-3xlarge: calc(var(--font-size-2xlarge) + 0.3rem);
+		--font-size-4xlarge: calc(var(--font-size-3xlarge) + 0.3rem);
+		--font-size-5xlarge: calc(var(--font-size-4xlarge) + 0.3rem);
+		/*******/
+		/**PADDING | MARGIN SIZES */
+		--pm-size-xxsmall: 5px;
+		--pm-size-xsmall: 8px;
+		--pm-size-normal: 1rem;
+		--pm-size-medium: 1.5rem;
+		/*******/
+		--shadow-color: 222deg 41% 12%;
+		--shadow-elevation-low: 0.3px 0.5px 0.6px
+				hsl(var(--shadow-color) / 0.33),
+			0.5px 0.8px 1px -1.5px hsl(var(--shadow-color) / 0.3),
+			1.3px 1.8px 2.3px -2.9px hsl(var(--shadow-color) / 0.27);
+		--shadow-elevation-medium: 0.3px 0.5px 0.6px
+				hsl(var(--shadow-color) / 0.35),
+			1px 1.4px 1.8px -1px hsl(var(--shadow-color) / 0.32),
+			2.5px 3.6px 4.6px -2px hsl(var(--shadow-color) / 0.3),
+			6.3px 9.1px 11.7px -2.9px hsl(var(--shadow-color) / 0.27);
+		--shadow-elevation-high: 0.3px 0.5px 0.6px
+				hsl(var(--shadow-color) / 0.33),
+			1.5px 2.1px 2.7px -0.4px hsl(var(--shadow-color) / 0.31),
+			2.8px 4px 5.2px -0.8px hsl(var(--shadow-color) / 0.3),
+			4.7px 6.8px 8.7px -1.3px hsl(var(--shadow-color) / 0.29),
+			7.7px 11.1px 14.3px -1.7px hsl(var(--shadow-color) / 0.28),
+			12.3px 17.9px 23px -2.1px hsl(var(--shadow-color) / 0.26),
+			19px 27.6px 35.4px -2.5px hsl(var(--shadow-color) / 0.25),
+			28.4px 41.2px 52.9px -2.9px hsl(var(--shadow-color) / 0.24);
 	}
 
 	/* [data-theme="light"] {
