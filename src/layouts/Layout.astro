@@ -16,7 +16,7 @@ const { title } = Astro.props;
 		/>
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 		/>
 		<meta
 			name="keywords"
@@ -29,6 +29,7 @@ const { title } = Astro.props;
 		<link
 			href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
 			rel="stylesheet"
+			media="none" onload="if(media!=='all')media='all'"
 		/>
 		<meta name="author" content="ezequielish" />
 		<link rel="icon" type="image/svg+xml" href="/logo_color-2.svg" />
@@ -169,6 +170,7 @@ const { title } = Astro.props;
 		--height-header-movil: 5vh;
 		/*******/
 		/**COLORS */
+		--background-btn-icon: #1e4252;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -237,6 +239,7 @@ const { title } = Astro.props;
 		--blue-light: #13151a 100%;
 		--background-span-dark: #2a81a9;
 		--blue-light: var(--white);
+		--background-btn-icon: #c1c4c5;
 	}
 
 	.white-svg {

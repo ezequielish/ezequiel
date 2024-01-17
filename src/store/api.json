@@ -87,5 +87,51 @@
                 "Github/Bitbucket,"
             ]
         }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "Studio ghibli",
+            "repository": "https://github.com/ezequielish/studioghilbli",
+            "deploy": "https://studio-ghilbli.onrender.com",
+            "description": "Proyecto Frontend que consume Api externo para listar películas también tiene un módulo de usuarios para registrarse e iniciar sesión.",
+            "skills": [
+                "JavaScript (ES6+)",
+                "Nuxtjs",
+                "Vuejs",
+                "CSS3/HTML",
+                "Api Rest",
+                "render deploy"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Studio ghibli API",
+            "description": "Proyecto Backend de un Api Rest hecho en Laravel x10 manejo de token con sanctum, Se conecta a una base de datos mysql, documentada en swagger, desplegado en fli.io.",
+            "repository": "https://github.com/ezequielish/studioghilbli",
+            "deploy": "https://studioghilbli.fly.dev/api/documentation",
+            "skills": [
+                "PHP>8",
+                "Laravelx10",
+                "CSS3/HTML",
+                "Api Rest,",
+                "Swagger",
+                "Fly.io",
+                "Linux/Cron"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Juego Memoria",
+            "description": "Juego de memoria con un piano de luces.",
+            "repository": "https://github.com/ezequielish/juego-memorizar",
+            "deploy": "https://courageous-alpaca-9ef70d.netlify.app",
+            "skills": [
+                "CSS3/HTML",
+                "Netlify",
+                "JavaScript (ES6+)",
+                "LocalStorage"
+            ]
+        }
     ]
 }

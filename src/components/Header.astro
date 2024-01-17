@@ -5,6 +5,8 @@ import IconGitHub from "./IconGitHub.astro";
 import IconLinkedin from "./IconLinkedin.astro";
 import IconTwitter from "./IconTwitter.astro";
 import IconPlatzi from "./IconPlatzi.astro";
+import IconCopy from "./IconCopy.astro";
+import IconCopyCheck from "./IconCopyCheck.astro";
 import LogoDark from "../assets/img/logo-dark.svg";
 ---
 
@@ -28,6 +30,9 @@ import LogoDark from "../assets/img/logo-dark.svg";
                 <li class="experience">
                     <div></div><a href="#experience">Experiencia</a>
                 </li>
+                <li class="projects">
+                    <div></div><a href="#projects">Projects</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -47,6 +52,19 @@ import LogoDark from "../assets/img/logo-dark.svg";
         <a href="https://platzi.com/p/Ezequiel_ish/" target="_blank">
             <IconPlatzi classStyle="white-svg" width="30px" height="35px" />
         </a>
+        <div class="wrapper__email" id="copy-email">
+            <p>ezequielprophetic@gmail.com</p>
+            <button id="copy-btn" class="icon-active"
+                ><IconCopy width="15px" height="15px" classStyle="white-svg" />
+            </button>
+            <button id="copy-btn-check">
+                <IconCopyCheck
+                    width="15px"
+                    height="15px"
+                    classStyle="white-svg"
+                />
+            </button>
+        </div>
     </div>
     <figure>
         <Image
@@ -59,9 +77,10 @@ import LogoDark from "../assets/img/logo-dark.svg";
     </figure>
 </header>
 <script>
-    import OfficePng from "../assets/img/office.png";
-    import OfficeLightPng from "../assets/img/office-light.png";
     import { atom } from "nanostores";
+    const copyBtn = document.querySelector("#copy-btn");
+    const copyBtnCheck = document.querySelector("#copy-btn-check");
+    const copyEmail = document.querySelector("#copy-email");
     const viewPercentage = atom({
         aboutme: 0,
         experience: 0,
@@ -161,6 +180,34 @@ import LogoDark from "../assets/img/logo-dark.svg";
             }
         });
     }
+
+    copyBtn.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText("ezequielprophetic@gmail.com");
+            copyBtn.classList.toggle("icon-active");
+            copyBtnCheck.classList.toggle("icon-active");
+            setTimeout(() => {
+                copyBtn.classList.toggle("icon-active");
+                copyBtnCheck.classList.toggle("icon-active");
+            }, 1000);
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    copyEmail.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText("ezequielprophetic@gmail.com");
+            copyBtn.classList.toggle("icon-active");
+            copyBtnCheck.classList.toggle("icon-active");
+            setTimeout(() => {
+                copyBtn.classList.toggle("icon-active");
+                copyBtnCheck.classList.toggle("icon-active");
+            }, 1000);
+        } catch (error) {
+            console.log(error);
+        }
+    });
 </script>
 <style>
     .li-active {
@@ -172,8 +219,53 @@ import LogoDark from "../assets/img/logo-dark.svg";
         background-color: var(--white) !important;
     }
 
+    .wrapper__email {
+        display: flex;
+        position: absolute;
+        margin-top: 4rem;
+        margin-left: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper__email p {
+        padding: var(--pm-size-xxsmall);
+        background: var(--background-span-dark);
+        border-radius: var(--pm-size-xsmall) 0px 0px var(--pm-size-xsmall);
+        border-top: solid 2px var(--blue-light);
+        border-left: solid 2px var(--blue-light);
+        border-bottom: solid 2px var(--blue-light);
+        cursor: pointer;
+    }
+
+    .wrapper__email button {
+        display: none;
+        height: 39px;
+        margin-top: var(--pm-size-medium);
+        background: none;
+        border: none;
+        padding: var(--pm-size-xsmall);
+        border-top: solid 2px var(--blue-light);
+        border-right: solid 2px var(--blue-light);
+        border-bottom: solid 2px var(--blue-light);
+        border-radius: 0px var(--pm-size-xsmall) var(--pm-size-xsmall) 0px;
+        background: var(--background-btn-icon);
+    }
+
+    .wrapper__email .icon-active {
+        display: flex;
+        align-items: center;
+    }
+    /* .wrapper__email button svg {
+        fill: red;
+        display: none;
+    } */
+    /* .wrapper__email button .icon-active {
+        display: block !important;
+    } */
+
     header {
         display: flex;
+        align-items: flex-start;
         flex-wrap: wrap;
         font-size: var(--font-size-normal);
     }
@@ -183,11 +275,11 @@ import LogoDark from "../assets/img/logo-dark.svg";
     }
 
     header .virtual-office-img {
-        width: 100%;
-        height: 100%;
+        width: 330px;
+        height: 280px;
         object-fit: contain;
         object-position: top;
-        aspect-ratio: 1/1;
+        aspect-ratio: 2/2;
     }
 
     header .logo {
@@ -309,6 +401,11 @@ import LogoDark from "../assets/img/logo-dark.svg";
         }
     }
 
+    @media screen and (min-width: 800px) and (max-height: 700px) {
+        figure {
+            display: none !important;
+        }
+    }
     @media screen and (min-width: 1024px) {
         header {
             display: flex;
@@ -387,6 +484,15 @@ import LogoDark from "../assets/img/logo-dark.svg";
         nav ul li:hover div {
             width: 60px;
             background: var(--white);
+        }
+
+        .wrapper__email button {
+            height: 32px;
+            cursor: pointer;
+        }
+
+        .wrapper__email p {
+            font-size: var(--font-size-xsmall);
         }
     }
 

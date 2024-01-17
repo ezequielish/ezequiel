@@ -1,0 +1,117 @@
+---
+import IconGitHub from "./IconGitHub.astro";
+import IconLink from "./IconLink.astro";
+
+import Api from "../store/api.json";
+---
+
+<section id="section-projects">
+    <h1>Proyectos</h1>
+
+    <div class="projects__wrapper">
+        {
+            Api.projects.map((item, key) => {
+                return (
+                    <div class="projects__wrapper-items">
+                        <div class="projects__wrapper-items-link">
+                            <a href={item.repository} target="_blank">
+                                <IconGitHub
+                                    width="25px"
+                                    height="25px"
+                                    classStyle=""
+                                />
+                            </a>
+                            <a href={item.deploy} target="_blank">
+                                <IconLink
+                                    width="25px"
+                                    height="25px"
+                                    classStyle=""
+                                />
+                            </a>
+                        </div>
+                        <h2>{item.title}</h2>
+                        <p>{item.description}</p>
+                        <div class="experience__wrapper-skills">
+                            {item.skills.map((skill) => {
+                                return <span>{skill}</span>;
+                            })}
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>
+
+<script></script>
+<style>
+    h1 {
+        font-size: var(--font-size-medium);
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--background-dark);
+    }
+    h2 {
+        margin-top: var(--pm-size-xsmall);
+        font-size: var(--font-size-normal);
+        font-weight: 600;
+    }
+
+    .projects__wrapper {
+        margin-top: var(--pm-size-normal);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--pm-size-medium) + 1rem);
+    }
+    .projects__wrapper .projects__wrapper-items {
+        padding: var(--pm-size-normal);
+        background: var(--background-dark);
+        border-radius: 7px;
+        border: 2px solid var(--background-span-dark);
+        box-shadow: var(--shadow-elevation-medium);
+    }
+
+    .projects__wrapper .projects__wrapper-items-link {
+        text-align: right;
+        padding: var(--pm-size-xsmall);
+    }
+    .projects__wrapper .projects__wrapper-items-link a {
+        padding: var(--pm-size-xsmall);
+        text-decoration: none;
+    }
+
+    .projects__wrapper p {
+        margin-top: var(--pm-size-normal);
+    }
+
+    .projects__wrapper .experience__wrapper-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--pm-size-xsmall);
+        margin-top: var(--pm-size-normal);
+        color: var(--blue-light);
+    }
+
+    @media screen and (min-width: 1024px) {
+        #section-projects {
+            grid-column: 2;
+        }
+        .projects__wrapper .projects__wrapper-items {
+            cursor: pointer;
+        }
+
+        .projects__wrapper .projects__wrapper-items:hover {
+            transform: translateY(-5px);
+            transition: 0.4s all;
+        }
+    }
+
+    @media screen and (min-width: 1150px) {
+        .projects__wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
