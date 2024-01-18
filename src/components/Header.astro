@@ -12,7 +12,13 @@ import LogoDark from "../assets/img/logo-dark.svg";
 
 <header>
     <div class="content">
-        <Image src={LogoDark} alt="Logo Ezequielish" id="logo" class="logo" />
+        <Image
+            src={LogoDark}
+            alt="Logo Ezequielish"
+            id="logo"
+            class="logo"
+            loading="lazy"
+        />
         <h1>Ezequiel Guerra</h1>
         <h2>Desarrollador Fullstack</h2>
 
@@ -25,36 +31,65 @@ import LogoDark from "../assets/img/logo-dark.svg";
         <nav class="nav">
             <ul>
                 <li class="aboutme">
-                    <div></div><a href="#aboutme">Acerca de mí</a>
+                    <div></div><a href="#aboutme" aria-label="Sobre mí"
+                        >Acerca de mí</a
+                    >
                 </li>
                 <li class="experience">
-                    <div></div><a href="#experience">Experiencia</a>
+                    <div></div><a href="#experience" aria-label="Mi Experiencia"
+                        >Experiencia</a
+                    >
                 </li>
                 <li class="projects">
-                    <div></div><a href="#projects">Projects</a>
+                    <div></div><a href="#projects" aria-label="Mis Proyectos"
+                        >Projects</a
+                    >
                 </li>
             </ul>
         </nav>
     </div>
     <div class="hero__social-media">
         <a href="https://github.com/ezequielish" target="_blank">
-            <IconGitHub classStyle="white-svg" width="38px" height="38px" />
+            <IconGitHub
+                classStyle="white-svg"
+                width="38px"
+                height="38px"
+                aria-label="Github"
+            />
         </a>
         <a
             href="https://www.linkedin.com/in/ezequiel-guerra-0945859a/"
             target="_blank"
         >
-            <IconLinkedin classStyle="white-svg" width="38px" height="38px" />
+            <IconLinkedin
+                classStyle="white-svg"
+                width="38px"
+                height="38px"
+                aria-label="Linkkedin"
+            />
         </a>
-        <a href="https://twitter.com/ezequiel_ish" target="_blank">
+        <a
+            href="https://twitter.com/ezequiel_ish"
+            target="_blank"
+            aria-label="Twitter"
+        >
             <IconTwitter classStyle="white-svg" width="38px" height="38px" />
         </a>
         <a href="https://platzi.com/p/Ezequiel_ish/" target="_blank">
-            <IconPlatzi classStyle="white-svg" width="30px" height="35px" />
+            <IconPlatzi
+                classStyle="white-svg"
+                width="30px"
+                height="35px"
+                aria-label="Platzi"
+            />
         </a>
         <div class="wrapper__email" id="copy-email">
             <p>ezequielprophetic@gmail.com</p>
-            <button id="copy-btn" class="icon-active"
+            <button
+                id="copy-btn"
+                class="icon-active"
+                aria-label="Copy"
+                title="Copy"
                 ><IconCopy width="15px" height="15px" classStyle="white-svg" />
             </button>
             <button id="copy-btn-check">
@@ -72,6 +107,7 @@ import LogoDark from "../assets/img/logo-dark.svg";
             alt="virtual office"
             class="virtual-office-img"
             id="officeImg"
+            decoding="async"
             loading="lazy"
         />
     </figure>
